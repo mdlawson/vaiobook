@@ -127,7 +127,7 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
     Name (DPPB, 0xFED98000)
     Name (DPPL, 0x8000)
     Name (BB1, 0x07)
-    OperationRegion (GNVS, SystemMemory, 0x9AFBDE18, 0x01BA)
+    OperationRegion (GNVS, SystemMemory, 0x9AFACE18, 0x01BA)
     Field (GNVS, AnyAcc, Lock, Preserve)
     {
         OSYS,   16, 
@@ -340,7 +340,7 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
         OPTF,   8
     }
 
-    OperationRegion (OGNS, SystemMemory, 0x9AFBCF98, 0x18)
+    OperationRegion (OGNS, SystemMemory, 0x9AFBEF18, 0x18)
     Field (OGNS, AnyAcc, Lock, Preserve)
     {
         OG00,   8, 
@@ -710,7 +710,7 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                     0x00FF,             // Range Maximum
                     0x0000,             // Translation Offset
                     0x0100,             // Length
-                    ,, _Y00)
+                    ,, )
                 DWordIO (ResourceProducer, MinFixed, MaxFixed, PosDecode, EntireRange,
                     0x00000000,         // Granularity
                     0x00000000,         // Range Minimum
@@ -744,264 +744,263 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                     0x000C3FFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y01, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000C4000,         // Range Minimum
                     0x000C7FFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y02, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000C8000,         // Range Minimum
                     0x000CBFFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y03, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000CC000,         // Range Minimum
                     0x000CFFFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y04, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000D0000,         // Range Minimum
                     0x000D3FFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y05, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000D4000,         // Range Minimum
                     0x000D7FFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y06, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000D8000,         // Range Minimum
                     0x000DBFFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y07, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000DC000,         // Range Minimum
                     0x000DFFFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y08, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000E0000,         // Range Minimum
                     0x000E3FFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y09, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000E4000,         // Range Minimum
                     0x000E7FFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y0A, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000E8000,         // Range Minimum
                     0x000EBFFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y0B, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000EC000,         // Range Minimum
                     0x000EFFFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00004000,         // Length
-                    ,, _Y0C, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000F0000,         // Range Minimum
                     0x000FFFFF,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00010000,         // Length
-                    ,, _Y0D, AddressRangeMemory, TypeStatic)
+                    ,, , AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
-                    0xFEAFFFFE,         // Range Minimum
+                    0x00000000,         // Range Minimum
                     0xFEAFFFFF,         // Range Maximum
                     0x00000000,         // Translation Offset
-                    0x00000002,         // Length
-                    ,, _Y0E, AddressRangeMemory, TypeStatic)
+                    0xFEB00000,         // Length
+                    ,, , AddressRangeMemory, TypeStatic)
             })
             Method (_CRS, 0, Serialized)
             {
-                CreateWordField (BUF0, \_SB.PCI0._Y00._MAX, PBMX)
+                CreateWordField (BUF0, 0x0A, PBMX)
                 Store (Subtract (ShiftRight (PELN, 0x14), 0x02), PBMX)
-                CreateWordField (BUF0, \_SB.PCI0._Y00._LEN, PBLN)
+                CreateWordField (BUF0, 0x0E, PBLN)
                 Store (Subtract (ShiftRight (PELN, 0x14), One), PBLN)
                 If (PM1L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y01._LEN, C0LN)
+                    CreateDWordField (BUF0, 0x7C, C0LN)
                     Store (Zero, C0LN)
                 }
 
                 If (LEqual (PM1L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y01._RW, C0RW)
+                    CreateBitField (BUF0, 0x0358, C0RW)
                     Store (Zero, C0RW)
                 }
 
                 If (PM1H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y02._LEN, C4LN)
+                    CreateDWordField (BUF0, 0x96, C4LN)
                     Store (Zero, C4LN)
                 }
 
                 If (LEqual (PM1H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y02._RW, C4RW)
+                    CreateBitField (BUF0, 0x0428, C4RW)
                     Store (Zero, C4RW)
                 }
 
                 If (PM2L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y03._LEN, C8LN)
+                    CreateDWordField (BUF0, 0xB0, C8LN)
                     Store (Zero, C8LN)
                 }
 
                 If (LEqual (PM2L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y03._RW, C8RW)
+                    CreateBitField (BUF0, 0x04F8, C8RW)
                     Store (Zero, C8RW)
                 }
 
                 If (PM2H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y04._LEN, CCLN)
+                    CreateDWordField (BUF0, 0xCA, CCLN)
                     Store (Zero, CCLN)
                 }
 
                 If (LEqual (PM2H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y04._RW, CCRW)
+                    CreateBitField (BUF0, 0x05C8, CCRW)
                     Store (Zero, CCRW)
                 }
 
                 If (PM3L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y05._LEN, D0LN)
+                    CreateDWordField (BUF0, 0xE4, D0LN)
                     Store (Zero, D0LN)
                 }
 
                 If (LEqual (PM3L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y05._RW, D0RW)
+                    CreateBitField (BUF0, 0x0698, D0RW)
                     Store (Zero, D0RW)
                 }
 
                 If (PM3H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y06._LEN, D4LN)
+                    CreateDWordField (BUF0, 0xFE, D4LN)
                     Store (Zero, D4LN)
                 }
 
                 If (LEqual (PM3H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y06._RW, D4RW)
+                    CreateBitField (BUF0, 0x0768, D4RW)
                     Store (Zero, D4RW)
                 }
 
                 If (PM4L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y07._LEN, D8LN)
+                    CreateDWordField (BUF0, 0x0118, D8LN)
                     Store (Zero, D8LN)
                 }
 
                 If (LEqual (PM4L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y07._RW, D8RW)
+                    CreateBitField (BUF0, 0x0838, D8RW)
                     Store (Zero, D8RW)
                 }
 
                 If (PM4H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y08._LEN, DCLN)
+                    CreateDWordField (BUF0, 0x0132, DCLN)
                     Store (Zero, DCLN)
                 }
 
                 If (LEqual (PM4H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y08._RW, DCRW)
+                    CreateBitField (BUF0, 0x0908, DCRW)
                     Store (Zero, DCRW)
                 }
 
                 If (PM5L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y09._LEN, E0LN)
+                    CreateDWordField (BUF0, 0x014C, E0LN)
                     Store (Zero, E0LN)
                 }
 
                 If (LEqual (PM5L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y09._RW, E0RW)
+                    CreateBitField (BUF0, 0x09D8, E0RW)
                     Store (Zero, E0RW)
                 }
 
                 If (PM5H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y0A._LEN, E4LN)
+                    CreateDWordField (BUF0, 0x0166, E4LN)
                     Store (Zero, E4LN)
                 }
 
                 If (LEqual (PM5H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y0A._RW, E4RW)
+                    CreateBitField (BUF0, 0x0AA8, E4RW)
                     Store (Zero, E4RW)
                 }
 
                 If (PM6L)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y0B._LEN, E8LN)
+                    CreateDWordField (BUF0, 0x0180, E8LN)
                     Store (Zero, E8LN)
                 }
 
                 If (LEqual (PM6L, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y0B._RW, E8RW)
+                    CreateBitField (BUF0, 0x0B78, E8RW)
                     Store (Zero, E8RW)
                 }
 
                 If (PM6H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y0C._LEN, ECLN)
+                    CreateDWordField (BUF0, 0x019A, ECLN)
                     Store (Zero, ECLN)
                 }
 
                 If (LEqual (PM6H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y0C._RW, ECRW)
+                    CreateBitField (BUF0, 0x0C48, ECRW)
                     Store (Zero, ECRW)
                 }
 
                 If (PM0H)
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y0D._LEN, F0LN)
+                    CreateDWordField (BUF0, 0x01B4, F0LN)
                     Store (Zero, F0LN)
                 }
 
                 If (LEqual (PM0H, One))
                 {
-                    CreateBitField (BUF0, \_SB.PCI0._Y0D._RW, F0RW)
+                    CreateBitField (BUF0, 0x0D18, F0RW)
                     Store (Zero, F0RW)
                 }
-
-                CreateDWordField (BUF0, \_SB.PCI0._Y0E._MIN, M1MN)
-                CreateDWordField (BUF0, \_SB.PCI0._Y0E._MAX, M1MX)
-                CreateDWordField (BUF0, \_SB.PCI0._Y0E._LEN, M1LN)
+                CreateDWordField (BUF0, 0x01C2, M1MN)
+                CreateDWordField (BUF0, 0x01C6, M1MX)
+                CreateDWordField (BUF0, 0x01CE, M1LN)
                 ShiftLeft (TLUD, 0x14, M1MN)
                 Add (Subtract (M1MX, M1MN), One, M1LN)
                 Return (BUF0)
@@ -2722,7 +2721,7 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                     {
                         IRQNoFlags ()
                             {0}
-                        IRQNoFlags (_Y0F)
+                        IRQNoFlags ()
                             {8}
                         IRQNoFlags ()
                             {11}
@@ -2740,22 +2739,6 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
 
                     Method (_CRS, 0, NotSerialized)
                     {
-                        CreateDWordField (CRS, 0x04, HPT0)
-                        If (LEqual (HPAS, One))
-                        {
-                            Store (0xFED01000, HPT0)
-                        }
-
-                        If (LEqual (HPAS, 0x02))
-                        {
-                            Store (0xFED02000, HPT0)
-                        }
-
-                        If (LEqual (HPAS, 0x03))
-                        {
-                            Store (0xFED03000, HPT0)
-                        }
-
                         Return (CRS)
                     }
                 }
@@ -3326,23 +3309,23 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
                     0x00004000,         // Address Length
-                    _Y10)
+                    )
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
                     0x00008000,         // Address Length
-                    _Y12)
+                    )
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
                     0x00001000,         // Address Length
-                    _Y13)
+                    )
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
                     0x00001000,         // Address Length
-                    _Y14)
+                    )
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
                     0x00000000,         // Address Length
-                    _Y15)
+                    )
                 Memory32Fixed (ReadWrite,
                     0xFED20000,         // Address Base
                     0x00020000,         // Address Length
@@ -3362,29 +3345,29 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
                     0x00001000,         // Address Length
-                    _Y11)
+                    )
             })
             Method (_CRS, 0, Serialized)
             {
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y10._BAS, RBR0)
+                CreateDWordField (BUF0, 0x04, RBR0)
                 ShiftLeft (^^LPCB.RCBA, 0x0E, RBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y11._BAS, TBR0)
+                CreateDWordField (BUF0, 0x70, TBR0)
                 Store (TBAB, TBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y11._LEN, TBLN)
+                CreateDWordField (BUF0, 0x74, TBLN)
                 If (LEqual (TBAB, Zero))
                 {
                     Store (Zero, TBLN)
                 }
 
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y12._BAS, MBR0)
+                CreateDWordField (BUF0, 0x10, MBR0)
                 ShiftLeft (MHBR, 0x0F, MBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y13._BAS, DBR0)
+                CreateDWordField (BUF0, 0x1C, DBR0)
                 ShiftLeft (DIBR, 0x0C, DBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y14._BAS, EBR0)
+                CreateDWordField (BUF0, 0x28, EBR0)
                 ShiftLeft (EPBR, 0x0C, EBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y15._BAS, XBR0)
+                CreateDWordField (BUF0, 0x34, XBR0)
                 ShiftLeft (PXBR, 0x1A, XBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y15._LEN, XSZ0)
+                CreateDWordField (BUF0, 0x38, XSZ0)
                 ShiftRight (0x10000000, PXSZ, XSZ0)
                 Return (BUF0)
             }
@@ -7546,7 +7529,7 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
 
     Name (BUFN, Zero)
     Name (MBUF, Buffer (0x1000) {})
-    OperationRegion (MDBG, SystemMemory, 0x9AF6C018, 0x1004)
+    OperationRegion (MDBG, SystemMemory, 0x9AF5C018, 0x1004)
     Field (MDBG, AnyAcc, Lock, Preserve)
     {
         MDG0,   32768

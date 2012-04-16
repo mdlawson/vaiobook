@@ -1,23 +1,4 @@
-/*
- * Intel ACPI Component Architecture
- * AML Disassembler version 20120111-32 [Jan 11 2012]
- * Copyright (c) 2000 - 2012 Intel Corporation
- * 
- * Disassembly of DSDT_1600x900.aml, Fri Mar 30 12:44:32 2012
- *
- * Original Table Header:
- *     Signature        "DSDT"
- *     Length           0x000084CE (33998)
- *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
- *     Checksum         0x16
- *     OEM ID           "Sony"
- *     OEM Table ID     "VAIO"
- *     OEM Revision     0x20111116 (537989398)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20120111 (538050833)
- */
-
-DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
+DefinitionBlock ("<FILENAME HERE>", "DSDT", 1, "Sony", "VAIO", 0x20111116)
 {
     External (HNOT, MethodObj)    // 1 Arguments
     External (SNXD)
@@ -998,6 +979,7 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                     CreateBitField (BUF0, 0x0D18, F0RW)
                     Store (Zero, F0RW)
                 }
+
                 CreateDWordField (BUF0, 0x01C2, M1MN)
                 CreateDWordField (BUF0, 0x01C6, M1MX)
                 CreateDWordField (BUF0, 0x01CE, M1LN)
@@ -2977,6 +2959,7 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
             P8XH (0x04, 0xE4, One)
         }
 
+        Notify (\_SB.PCI0.HDEF, 0x02)
         Return (Package (0x02)
         {
             Zero, 
@@ -5970,7 +5953,7 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
             Name (_ADR, 0x00020000)
             Method (_DSM, 4, NotSerialized)
             {
-                Store (Package (0x12)
+                Store (Package (0x10)
                     {
                         "hda-gfx", 
                         Buffer (0x0A)
@@ -5988,12 +5971,6 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                         Buffer (0x18)
                         {
                             "Intel HD Graphics 3000"
-                        }, 
-
-                        "AAPL00,DualLink", 
-                        Buffer (0x04)
-                        {
-                             0x01, 0x00, 0x00, 0x00
                         }, 
 
                         "AAPL,Haslid", 
@@ -6023,22 +6000,7 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                         "AAPL00,override-no-edid", 
                         Buffer (0x80)
                         {
-                            /* 0000 */   0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00,
-                            /* 0008 */   0x4D, 0xD9, 0xFA, 0x06, 0x0D, 0x00, 0x00, 0x00,
-                            /* 0010 */   0x00, 0x0C, 0x01, 0x03, 0x80, 0x1D, 0x10, 0xFF,
-                            /* 0018 */   0x2F, 0x00, 0x00, 0xA0, 0x57, 0x49, 0x9B, 0x26,
-                            /* 0020 */   0x10, 0x48, 0x4F, 0x00, 0x00, 0x00, 0x01, 0x01,
-                            /* 0028 */   0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-                            /* 0030 */   0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x0E, 0x27,
-                            /* 0038 */   0x40, 0xB8, 0x60, 0x84, 0x23, 0x30, 0x1E, 0x1E,
-                            /* 0040 */   0x11, 0x00, 0x25, 0xA5, 0x10, 0x00, 0x00, 0x18,
-                            /* 0048 */   0x7A, 0x23, 0x40, 0x2C, 0x61, 0x84, 0x38, 0x30,
-                            /* 0050 */   0x1E, 0x3C, 0x14, 0x00, 0x25, 0xA5, 0x10, 0x00,
-                            /* 0058 */   0x00, 0x18, 0x62, 0x1C, 0x40, 0x2C, 0x61, 0x84,
-                            /* 0060 */   0x38, 0x30, 0x1E, 0x3C, 0x14, 0x00, 0x25, 0xA5,
-                            /* 0068 */   0x10, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x00,
-                            /* 0070 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                            /* 0078 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40
+				<EDID HERE>
                         }
                     }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
@@ -6048,6 +6010,8 @@ DefinitionBlock ("DSDT_1600x900.aml", "DSDT", 1, "Sony", "VAIO", 0x20111116)
             Method (_INI, 0, NotSerialized)
             {
                 ISTP (0x0A, Zero)
+                Notify (\_SB.PCI0.PEG0, 0x02)
+                Notify (\_SB.PCI0.PEG0.PEGP, 0x02)
                 Store (ISTP (0x07, Zero), Local0)
                 Or (Local0, 0x80000000, BCLP)
             }

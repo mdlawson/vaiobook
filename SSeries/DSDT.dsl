@@ -2842,8 +2842,14 @@ DefinitionBlock ("<FILENAME HERE>", "DSDT", 1, "Sony", "VAIO", 0x20111116)
         }
     }
 
+    Method (POFF, 0, NotSerialized)
+    {
+        \_SB.PCI0.PEG0.PEGP._OFF ()
+    }
+
     Method (_WAK, 1, Serialized)
     {
+        POFF ()
         Store (Zero, P80D)
         SWAK (Arg0)
         If (NEXP)
@@ -5854,6 +5860,22 @@ DefinitionBlock ("<FILENAME HERE>", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                 0x09, 
                 Zero
             })
+            OperationRegion (RPCI, PCI_Config, Zero, 0xF0)
+            Field (RPCI, DWordAcc, Lock, Preserve)
+            {
+                Offset (0xB0), 
+                ASPM,   2, 
+                    ,   2, 
+                LNKD,   1
+            }
+
+            OperationRegion (RPCX, SystemMemory, XBAS, 0x8400)
+            Field (RPCX, DWordAcc, NoLock, Preserve)
+            {
+                Offset (0x8214), 
+                Offset (0x8216), 
+                LNKS,   4
+            }
             Name (PR01, Package (0x04)
             {
                 Package (0x04)
@@ -5940,6 +5962,81 @@ DefinitionBlock ("<FILENAME HERE>", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                     0x09, 
                     Zero
                 })
+                Name (ELCT, Zero)
+                Name (HVID, Zero)
+                Name (HDID, Zero)
+                OperationRegion (PCIS, PCI_Config, Zero, 0x0100)
+                Field (PCIS, DWordAcc, Lock, Preserve)
+                {
+                    DVID,   16, 
+                    Offset (0x2C),
+                    SVID,   16, 
+                    SDID,   16, 
+                    Offset (0x4C),
+                    WVID,   16, 
+                    WDID,   16
+                }
+
+                Name (B0D1, Zero)
+                OperationRegion (PCAP, SystemMemory, Or (PEBS, 0x8000, B0D1), 0xC0)
+                Field (PCAP, DWordAcc, NoLock, Preserve)
+                {
+                    Offset (0xB0), 
+                    LCTL,   16
+                }
+                OperationRegion (GPIO, SystemIO, 0x0500, 0x60)
+                Field (GPIO, ByteAcc, Lock, Preserve)
+                {
+                    Offset (0x0C), 
+                        ,   17, 
+                    PO17,   1, 
+                    Offset (0x38), 
+                        ,   3, 
+                    PO35,   1
+                }
+                Method (PWRE, 0, Serialized)
+                {
+                    Store (Zero, PO17)
+                    Store (One, PO35)
+                    Sleep (0x96)
+                    Store (One, PO17)
+                    Sleep (0x64)
+                }
+
+                Method (PWRD, 0, Serialized)
+                {
+                    Store (Zero, PO17)
+                    Store (Zero, PO35)
+                }
+                Method (_ON, 0, Serialized)
+                {
+                    PWRE ()
+                    Store (Zero, LNKD)
+                    While (LLess (LNKS, 0x07))
+                    {
+                        Sleep (One)
+                    }
+
+                    Store (HVID, WVID)
+                    Store (HDID, WDID)
+                    Or (And (ELCT, 0x43), And (LCTL, 0xFFBC), LCTL)
+                    Notify (PEG0, Zero)
+                }
+
+                Method (_OFF, 0, Serialized)
+                {
+                    Store (LCTL, ELCT)
+                    Store (SVID, HVID)
+                    Store (SDID, HDID)
+                    Store (One, LNKD)
+                    While (LLess (LNKS, Zero))
+                    {
+                        Sleep (One)
+                    }
+
+                    PWRD ()
+                    Notify (PEG0, Zero)
+                }
             }
         }
 
@@ -5953,7 +6050,7 @@ DefinitionBlock ("<FILENAME HERE>", "DSDT", 1, "Sony", "VAIO", 0x20111116)
             Name (_ADR, 0x00020000)
             Method (_DSM, 4, NotSerialized)
             {
-                Store (Package (0x10)
+                Store (Package (0x12)
                     {
                         "hda-gfx", 
                         Buffer (0x0A)
@@ -5972,7 +6069,11 @@ DefinitionBlock ("<FILENAME HERE>", "DSDT", 1, "Sony", "VAIO", 0x20111116)
                         {
                             "Intel HD Graphics 3000"
                         }, 
-
+						"AAPL00,DualLink", 
+                        Buffer (0x04)
+                        {
+                             0x01, 0x00, 0x00, 0x00
+                        }, 
                         "AAPL,Haslid", 
                         Buffer (0x04)
                         {
@@ -6009,9 +6110,8 @@ DefinitionBlock ("<FILENAME HERE>", "DSDT", 1, "Sony", "VAIO", 0x20111116)
 
             Method (_INI, 0, NotSerialized)
             {
+                POFF ()
                 ISTP (0x0A, Zero)
-                Notify (\_SB.PCI0.PEG0, 0x02)
-                Notify (\_SB.PCI0.PEG0.PEGP, 0x02)
                 Store (ISTP (0x07, Zero), Local0)
                 Or (Local0, 0x80000000, BCLP)
             }
